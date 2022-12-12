@@ -1,25 +1,36 @@
 package com.ecommerce.kidclothing.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.ecommerce.kidclothing.controller.dto.ItemDto;
+import jakarta.persistence.*;
 
 @Entity
-
+@Table(name="Item")
 public class Item
 {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
+    @Column(name="name")
     private String name;
 
+    @Column(name="description")
     private String description;
 
+    @Column(name="imageUrl")
     private String imageUrl;
 
+    @Column(name="price")
     private Double price;
+
+    public Item() {
+    }
+
+    public Item(ItemDto itemDto) {
+        this.name = itemDto.getName();
+        this.description = itemDto.getDescription();
+        this.imageUrl = itemDto.getImageUrl();
+    }
 
     public Integer getId()
     {
