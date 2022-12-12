@@ -1,10 +1,14 @@
 package com.ecommerce.kidclothing.repository.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "product")
-public class Product {
+
+public class Item
+{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -13,10 +17,9 @@ public class Product {
 
     private String description;
 
-    private String img;
+    private String imageUrl;
+
     private Double price;
-
-
 
     public Integer getId()
     {
@@ -48,14 +51,14 @@ public class Product {
         this.description = description;
     }
 
-    public String getImg()
+    public String getImageUrl()
     {
-        return img;
+        return imageUrl;
     }
 
-    public void setImg( String img )
+    public void setImageUrl( String imageUrl )
     {
-        this.img = img;
+        this.imageUrl = imageUrl;
     }
 
     public Double getPrice() {
