@@ -6,12 +6,16 @@ public class ItemDto {
     private String description;
 
     private String imageUrl;
+    private Double price;
 
-    public ItemDto( String name, String description, String imageUrl )
-    {
+    public ItemDto() {
+    }
+
+    public ItemDto(String name, String description, String imageUrl, Double price) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.price = price;
     }
 
     public String getName()
@@ -42,5 +46,23 @@ public class ItemDto {
     public void setImageUrl( String imageUrl )
     {
         this.imageUrl = imageUrl;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemDto{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

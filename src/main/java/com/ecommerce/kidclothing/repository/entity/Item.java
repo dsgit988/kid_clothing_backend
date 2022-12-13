@@ -30,6 +30,14 @@ public class Item
         this.name = itemDto.getName();
         this.description = itemDto.getDescription();
         this.imageUrl = itemDto.getImageUrl();
+        this.price = itemDto.getPrice();
+    }
+
+    public Item(String name, String description, String imageUrl, Double price) {
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.price = price;
     }
 
     public Integer getId()
@@ -78,5 +86,16 @@ public class Item
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

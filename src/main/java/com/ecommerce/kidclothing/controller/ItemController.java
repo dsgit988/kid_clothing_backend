@@ -26,7 +26,7 @@ public class ItemController {
     }
 
 
-    @PostMapping
+    @PostMapping()
     public Item save(@RequestBody ItemDto itemDto)
     {
         return itemService.save(new Item(itemDto));
@@ -45,6 +45,7 @@ public class ItemController {
         item.setName(itemDto.getName());
         item.setDescription(itemDto.getDescription());
         item.setImageUrl(itemDto.getImageUrl());
+        item.setPrice(itemDto.getPrice());
         return itemService.save(item);
     }
 
