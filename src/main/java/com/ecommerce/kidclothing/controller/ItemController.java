@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/api/items")
 public class ItemController {
     final ItemService itemService;
 
@@ -20,27 +20,31 @@ public class ItemController {
 
     }
 
-    @GetMapping("/all")
+    @CrossOrigin
+    @GetMapping()
     public Iterable<Item> getItems(){
         return itemService.all();
     }
 
-
+    @CrossOrigin
     @PostMapping()
     public Item save(@RequestBody ItemDto itemDto)
     {
         return itemService.save(new Item(itemDto));
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public Item findItemById(@PathVariable Integer id)
     {
         return itemService.findById(id);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public Item update(@RequestBody ItemDto itemDto, @PathVariable Integer id)
     {
+
         Item item = itemService.findById(id);
         item.setName(itemDto.getName());
         item.setDescription(itemDto.getDescription());
@@ -49,6 +53,7 @@ public class ItemController {
         return itemService.save(item);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id)
     {

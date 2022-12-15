@@ -41,6 +41,14 @@ public class ItemServiceMySQL implements ItemService{
     @Override
     public Item findById(int itemId) {
         //TODO implement this method
-        return itemRepository.findById(itemId).get();
+        Optional<Item> optionalFind = itemRepository.findById(itemId);
+        Item itemFound = null;
+        if (optionalFind.isPresent()){
+            itemFound = optionalFind.get();
+
+        }
+
+        return itemFound;
+
     }
 }
